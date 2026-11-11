@@ -1,0 +1,7 @@
+read_verilog -sv src/project.v
+chparam -set N 2 tt_um_sumit_int8_systolic
+synth -top tt_um_sumit_int8_systolic -flatten
+dfflibmap -liberty sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty sky130_fd_sc_hd__tt_025C_1v80.lib -dont_use *lpflow* -dont_use *probe* -dont_use *_0
+opt_clean
+stat -liberty sky130_fd_sc_hd__tt_025C_1v80.lib

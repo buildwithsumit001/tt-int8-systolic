@@ -1,0 +1,56 @@
+# Tiny Tapeout project information
+project:
+  title:        "Tiny int8 Systolic Matrix Multiplier"      # Project title
+  author:       "Sumit Jindal"      # Your name
+  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description:  "2x2 int8 output-stationary systolic array: C = A x B or C += A x B, 20-bit accumulators, byte-serial I/O"      # One line description of what your project does
+  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz:     10000000       # Clock frequency in Hz (or 0 if not applicable)
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x2"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  top_module:  "tt_um_sumit_int8_systolic"
+
+  # List your project's source files here.
+  # Source files must be in ./src and you must list each source file separately, one per line.
+  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+  source_files:
+    - "project.v"
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+pinout:
+  # Inputs
+  ui[0]: "DATA0"
+  ui[1]: "DATA1"
+  ui[2]: "DATA2"
+  ui[3]: "DATA3"
+  ui[4]: "DATA4"
+  ui[5]: "DATA5"
+  ui[6]: "DATA6"
+  ui[7]: "DATA7"
+
+  # Outputs
+  uo[0]: "RESULT0"
+  uo[1]: "RESULT1"
+  uo[2]: "RESULT2"
+  uo[3]: "RESULT3"
+  uo[4]: "RESULT4"
+  uo[5]: "RESULT5"
+  uo[6]: "RESULT6"
+  uo[7]: "RESULT7"
+
+  # Bidirectional pins
+  uio[0]: "WR (in)"
+  uio[1]: "START (in)"
+  uio[2]: "RD_NEXT (in)"
+  uio[3]: "ACC (in)"
+  uio[4]: "RST_PTR (in)"
+  uio[5]: "BUSY (out)"
+  uio[6]: "DONE (out)"
+  uio[7]: "LOADED (out)"
+
+# Do not change!
+yaml_version: 6
